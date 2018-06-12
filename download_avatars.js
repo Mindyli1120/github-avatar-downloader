@@ -2,8 +2,6 @@ var request = require('request');
 var github_token = require('./secrets');
 var fs = require('fs');
 function getRepoContributors(repoOwner, repoName, cb) {
-    // var repoOwner = procees.argv[2];
-    // var repoName = process.argv[3];
     var options = {
         url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
         headers: {
