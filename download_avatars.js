@@ -24,7 +24,12 @@ function downloadImageByURL(url, filePath) {
 }
 
 getRepoContributors(process.argv[2], process.argv[3], function (err, result) {
-    console.log("Errors:", err);
+    if (!arguments[0] || !arguments[1]) {
+        console.log("Errors: No repo name and/or repo owner presented!" );
+    }
+    if (err) {
+        console.log("Errors: There is an error!")
+    }
     for (var i = 0; i < result.length; i++) {
         var login = result[i].login;
         //get the image of each person with the avatar_url
