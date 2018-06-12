@@ -24,11 +24,13 @@ function downloadImageByURL(url, filePath) {
 }
 
 getRepoContributors(process.argv[2], process.argv[3], function (err, result) {
-    if (!arguments[0] || !arguments[1]) {
-        console.log("Errors: No repo name and/or repo owner presented!" );
+    if (!process.argv[2] || !process.argv[3]) {
+        console.log("Errors: No repo name and/or repo owner presented!");
+        return;
     }
     if (err) {
         console.log("Errors: There is an error!")
+        return;
     }
     for (var i = 0; i < result.length; i++) {
         var login = result[i].login;
